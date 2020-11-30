@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/folders/{id}/tasks', 'App\Http\Controllers\TaskController')->name('tasks.index');
+
+
+
+// Route::get(
+//     '/folders/{folder}/tasks',
+//     [App\Http\Controllers\TaskController::class, 'index']
+// )->name('tasks.index');
