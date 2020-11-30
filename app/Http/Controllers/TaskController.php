@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 
+
 class TaskController extends Controller
 {
         public function index(int $id)
@@ -15,4 +16,5 @@ class TaskController extends Controller
                 'folders' => $folders,
                 'current_folder_id' => $id,
             ]);
+    }
 }
