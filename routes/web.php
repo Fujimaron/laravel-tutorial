@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,9 @@ Route::get('/', function () {
 
 // Route::get('/folders/{id}/tasks', 'App\Http\Controllers\TaskController')->name('tasks.index');
 
+// ホーム画面の表示
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 // 一覧画面
 Route::get('/folders/{id}/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks.index');
 
@@ -37,6 +41,8 @@ Route::post('/folders/{id}/tasks/create', [App\Http\Controllers\TaskController::
 Route::get('/folders/{id}/tasks/{task_id}/edit', [App\Http\Controllers\TaskController::class, 'showEditForm'])->name('tasks.edit');
 Route::post('/folders/{id}/tasks/{task_id}/edit', [App\Http\Controllers\TaskController::class, 'edit']);
 
+// 会員登録の認証
+Auth::routes();
 
 
 
@@ -45,3 +51,6 @@ Route::post('/folders/{id}/tasks/{task_id}/edit', [App\Http\Controllers\TaskCont
 //     '/folders/{folder}/tasks',
 //     [App\Http\Controllers\TaskController::class, 'index']
 // )->name('tasks.index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
